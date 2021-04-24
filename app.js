@@ -1,34 +1,33 @@
-const functions = require("./functions")
-
 const express = require("express");
-const path = require("path");
-const app = express();
 const port = process.env.PORT || 3000;
-
-app.set("view engine","hbs");
-
-app.use("/assets",express.static(path.join(__dirname, "./assets")));
-app.use("/js",express.static(path.join(__dirname, "./js")));
-
-app.get("/", function (req, res){
-    res.render("index", {
-        pageTitle:"Zajęcia 27.02",
-        subTitle: "NodeJS",
-        subsubTitle: functions.someText,
-        subsubsubTitle: functions.someFunction(),
-    })
+const app = express();
+//ustawienie, ze moja aplikacja musi korzystac z silnika hbs
+app.set("view engine", 'hbs')
+//gdy uzytkownik wchodzi na stronę
+app.get('/', function (req, res) {
+res.render('index', {
+    pageTitle: "Lekcja01"
 })
-app.get("/about", function (req, res){
-    res.send("Strona o mnie")
 })
-
-app.get("/about/ala", function (req,res){
-    res.send("Strona o Ali")
+app.get('/about', function (req, res){
+res.send("My site")
 })
-
 app.listen(port, (err) => {
-    if (err) {return console.log(`Wystąpił błąd: ${err}`)}
-    console.log(`Aplikacja działa na porcie ${port}`)
-});
+if (err) {
+return console.log("coś poszło nie tak...:", err)
+}
+console.log("serwer działa na porcie", port)
+})
+// Podpięcie css
+const path = require('path')
+app.use('/assets', express.static(path.join(__dirname, "./assets")));
+app.use('/js', express.static(path.join(__dirname, "./js")));
 
-
+const sample = () => {
+    return 'proba'
+    }
+    app.get('/', function (req, res) {
+    res.render('index', {
+    anotherTitle: sample()
+    })
+    })

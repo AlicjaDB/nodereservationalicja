@@ -1,17 +1,25 @@
 {
-  "name": "27.02.2021_node_js",
+  "name": "alicjaducburek_node",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node app.js"
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlicjaDB/kurs_node.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlicjaDB/kurs_node/issues"
+  },
+  "homepage": "https://github.com/AlicjaDB/kurs_node#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "hbs": "^4.1.1"
+    "hbs": "^4.1.2"
   }
 }
